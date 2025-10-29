@@ -1,12 +1,11 @@
 import pkg from 'pg';
 import dotenv from 'dotenv';
-const environment = process.env.NODE_ENV
+const environment = process.env.NODE_ENV || 'development';
 dotenv.config()
-
+const port = process.env.DB_PORT;
 const{Pool} = pkg
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+
 const openConnection = () => {
 const pool = new Pool({
   user: process.env.DB_USER,
