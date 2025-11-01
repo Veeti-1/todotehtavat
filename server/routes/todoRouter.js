@@ -1,8 +1,13 @@
 import {pool} from '../db_helper/db.js';
 import { Router } from 'express';
 import {auth} from '../db_helper/auth.js';
+import {getTasks, postTask, deleteTask} from '../models/TaskController.js';
 const router = Router()
 
+router.get('/', getTasks);
+router.post('/create',auth, postTask);
+router.delete('/delete/:id',auth, deleteTask);
+/*
 router.get('/', (req, res) => {
  
 pool.query('SELECT * FROM task', (err, results) => {
@@ -46,6 +51,6 @@ pool.query('DELETE FROM task WHERE id = $1',
   
 })
 });
-
+*/
 
 export default router;
