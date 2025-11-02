@@ -11,8 +11,9 @@ function App() {
   const [task, setTask] = useState('')
   const [tasks, setTasks] = useState([])
   const {user} = useUser()
-
+  
   useEffect(() => {
+    
     axios.get(url)
     .then(response => {
       setTasks(response.data)
@@ -51,11 +52,18 @@ function App() {
         alert (error.response ? error.response.data.error.message : error)
       })
     }
-
+if(sessionStorage.getItem("user") === null){
+  window.location.replace('/signin')
+}
  
   return (
-    
-      <div id='container'>
+     
+        
+      
+      
+      
+        
+        <div id='container'>
        <h3 >Todos</h3>
        <form >
         
@@ -77,8 +85,10 @@ function App() {
           ))
           }
         </ul>
+              
+          
       </div>
-     
+         
    
    
   )
