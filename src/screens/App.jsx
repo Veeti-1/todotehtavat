@@ -11,7 +11,10 @@ function App() {
   const [task, setTask] = useState('')
   const [tasks, setTasks] = useState([])
   const {user} = useUser()
-  
+  const logout = () => {
+    sessionStorage.removeItem("user")
+    window.location.replace('/signin')
+  }
   useEffect(() => {
     
     axios.get(url)
@@ -65,6 +68,7 @@ if(sessionStorage.getItem("user") === null){
         
         <div id='container'>
        <h3 >Todos</h3>
+       <button className='logout' onClick={logout}>Logout</button>
        <form >
         
         <input

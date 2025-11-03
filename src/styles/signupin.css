@@ -43,4 +43,16 @@
   padding-left: 10px;
   font-size: 16px;
 }
-
+.logout{
+    position: absolute;
+    bottom: -2.7vh;
+    right: -11vh;
+  
+    background-color: transparent;
+  color: #00ffff;
+  border: 2px solid #00ffff;
+}
+.logout:hover{
+ color: #000000;
+  background-color: #00ffff;
+}
